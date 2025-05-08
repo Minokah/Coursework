@@ -1,0 +1,56 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18ec624ab7c52421cae7d8693de8b2d0, type: 3}
+  m_Name: en
+  m_EditorClassIdentifier: 
+  keys:
+  - RobotSpeaker
+  - SelectLanguage
+  - QuitButton
+  - WhatToAsk
+  - TalkToRobot
+  - ChangeMusic
+  - Music1
+  - MusicMall
+  - MusicCity
+  - MusicChanged
+  - MusicChangeAgain
+  - MusicChangeEnd
+  - RobotStart1
+  - RobotStart2
+  - RobotStart3
+  - Yes
+  - No
+  - RobotUnityYes1
+  - RobotSpeakerHappy
+  - RobotUnityYes2
+  values:
+  - Kyle
+  - Select Language
+  - Quit
+  - What to ask...?
+  - Talk to the Robot
+  - Change the Music
+  - What would you like to change it to?
+  - Mall
+  - City
+  - Enjoy!
+  - Change it again
+  - (Back to Menu)
+  - Hey! I'm Kyle. Nice to meet you!
+  - To start, let me ask you a question.
+  - Do you like Unity?
+  - Yes
+  - No
+  - That's good to hear! I'm so glad you enjoy it.
+  - Happy Kyle
+  - Next question...\nWhat is your favourite flavour of ice cream?

@@ -1,0 +1,91 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18ec624ab7c52421cae7d8693de8b2d0, type: 3}
+  m_Name: sp
+  m_EditorClassIdentifier: 
+  keys:
+  - RobotSpeaker
+  - SelectLanguage
+  - QuitButton
+  - WhatToAsk
+  - TalkToRobot
+  - ChangeMusic
+  - Music1
+  - MusicMall
+  - MusicCity
+  - MusicChanged
+  - MusicChangeAgain
+  - MusicChangeEnd
+  - RobotStart1
+  - RobotStart2
+  - RobotStart3
+  - Yes
+  - No
+  - RobotUnityYes1
+  - RobotSpeakerHappy
+  - RobotUnityNo1
+  - RobotSpeakerSad
+  - RobotCream1
+  - CreamChocolate
+  - CreamVanilla
+  - CreamStrawberry
+  - CreamDislike
+  - RobotCreamChocolate1
+  - RobotCreamVanilla1
+  - RobotCreamStrawberry1
+  - RobotCreamDislike1
+  - RobotCreamDislike2
+  - RobotEnd1
+  - RobotEnd2
+  - RobotEnd3
+  - RobotEndStart
+  - RobotEndExit
+  values:
+  - Kyle
+  - Seleccione Idioma
+  - Quitter
+  - "\xBFQu\xE9 preguntar...?"
+  - Habla con el Robot
+  - "Cambiar la M\xFAsica"
+  - "\xBFA qu\xE9 te gustar\xEDa cambiarlo?"
+  - Centro comercial
+  - Ciudad
+  - "\xA1Disfrutar!"
+  - "C\xE1mbialo de nuevo"
+  - "(Volver al men\xFA)"
+  - "\xA1Hola! Soy Kyle. \xA1Un placer conocerte!"
+  - "Para empezar, d\xE9jame hacerte una pregunta."
+  - "\xBFTe gusta Unity?"
+  - "S\xED"
+  - No
+  - "\xA1Qu\xE9 bueno saberlo! Me alegro mucho de que lo disfrutes."
+  - Kyle Feliz
+  - "\xBF\xA1Qu\xE9!? \xBFNo te gusta Unity? Es una pena... de todos modos."
+  - Triste Kyle
+  - "Question suivante... Quelle est votre saveur de glace pr\xE9f\xE9r\xE9e ?"
+  - Chocolate
+  - Vainilla
+  - Fresa
+  - En realidad no me gusta el helado
+  - "Chocolate, marr\xF3n y dulce. Una opci\xF3n muy popular."
+  - "Vainilla, blanca como la nieve... casi. \xA1Buena elecci\xF3n!"
+  - "\xA1A ti tambi\xE9n te gusta la fresa! \xA1Es mi sabor favorito!"
+  - "\xA1\xBFQU\xC9?! \xBFA qui\xE9n no le gusta el helado? \xA1Qu\xE9 absurdo! \xA1Qu\xE9
+    absurdo! \xA1Qu\xE9 inconcebible!"
+  - "...perd\xF3n por el arrebato. Creo que ya no puedo mirarte de la misma manera...
+    sigamos adelante."
+  - "Mmm... Parece que me he quedado sin preguntas. Tendremos que acortarlo aqu\xED."
+  - "\xA1Fue muy agradable hablar contigo! Espero que podamos hablar de nuevo en
+    alg\xFAn momento."
+  - "Hasta entonces...\xA1que teng\xE1is un buen d\xEDa!"
+  - "(Iniciar la conversaci\xF3n de nuevo)"
+  - "(Fin de la conversaci\xF3n)"

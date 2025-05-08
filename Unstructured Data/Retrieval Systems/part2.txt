@@ -1,0 +1,269 @@
+This part was done on my Mac. See Execution.pdf for for screenshots of code execution
+
+1. The Lucene Demo
+1.1. Results:
+minokah@Naomis-MacBook-Air Part2 % java MySearchFiles < testcases.txt
+Enter query:
+Searching for: his fiery sword
+5 total matching documents
+1. documents/RJ3.txt
+2. documents/RJ5.txt
+3. documents/RJ4.txt
+4. documents/RJ9.txt
+5. documents/RJ6.txt
+Press (q)uit or enter number to jump to a page.
+Enter query:
+Searching for: alas o love
+5 total matching documents
+1. documents/RJ6.txt
+2. documents/RJ8.txt
+3. documents/RJ7.txt
+4. documents/RJ1.txt
+5. documents/RJ10.txt
+Press (q)uit or enter number to jump to a page.
+Enter query:
+Searching for: and
+8 total matching documents
+1. documents/RJ3.txt
+2. documents/RJ10.txt
+3. documents/RJ5.txt
+4. documents/RJ2.txt
+5. documents/RJ4.txt
+6. documents/RJ8.txt
+7. documents/RJ7.txt
+8. documents/RJ1.txt
+Press (q)uit or enter number to jump to a page.
+Enter query:
+Searching for: reckon
+0 total matching documents
+Enter query:
+Searching for: q
+0 total matching documents
+Enter query:
+Searching for: love
+4 total matching documents
+1. documents/RJ6.txt
+2. documents/RJ7.txt
+3. documents/RJ1.txt
+4. documents/RJ10.txt
+Press (q)uit or enter number to jump to a page.
+Enter query:
+Searching for: fair
+3 total matching documents
+1. documents/RJ9.txt
+2. documents/RJ10.txt
+3. documents/RJ1.txt
+Press (q)uit or enter number to jump to a page.
+Enter query:
+
+1.2. Lucene doesn't look like it uses stopwords by default right now. 'And' is returned with 8 matches even though that should be considered a common word to remove.
+I also added 'the' as a possible query and it didn't remove it.
+Enter query:
+Searching for: the
+9 total matching documents
+1. documents/RJ4.txt
+2. documents/RJ5.txt
+3. documents/RJ3.txt
+4. documents/RJ1.txt
+5. documents/RJ2.txt
+6. documents/RJ9.txt
+7. documents/RJ8.txt
+8. documents/RJ10.txt
+9. documents/RJ7.txt
+Press (q)uit or enter number to jump to a page.
+
+1.3. Lucene doesn't look like it uses stemming by default. I added 'their' and 'theirs' to the query and 'theirs' did not stem to 'their'. As for the
+results above, I do not think it uses stemming, as none of the tokens in the search are being cut or stemmed from their original forms.
+Searching for: their
+3 total matching documents
+1. documents/RJ1.txt
+2. documents/RJ2.txt
+3. documents/RJ10.txt
+Press (q)uit or enter number to jump to a page.
+Enter query:
+Searching for: theirs
+0 total matching documents
+Enter query:
+Searching for: q
+0 total matching documents
+Enter query:
+
+1.4. Lucene uses the BM25 metric. Aside from the documentation, looking at the results for 'love':
+Searching for: love
+4 total matching documents
+1. documents/RJ6.txt
+2. documents/RJ7.txt
+3. documents/RJ1.txt
+4. documents/RJ10.txt
+
+Ignoring RJ6 and RJ7, RJ1 has it 1 time, and RJ10 has it 1 time.
+If we only focus on the latter, RJ1 has 'love' above RJ10 even though they are the same.
+The reason for that is because RJ1 is much shorter than RJ10, and because of BM25 it is RJ1 will be ranked higher.
+
+------------
+
+2.1 Stopping
+See line 107-110 in MySearchFiles.java and line 103-106 in MyIndexFiles.java.
+
+For these results, "O" was capitalized in the stop word list, but the example of CharArraySet had case set to false by default. To make "O" work, I set the ignoreCase false to true. Below, you see that "O" is now filtered out.
+We can see the words being filtered out, such as "O" in "ALAS O LOVE" is filtered out.
+
+minokah@Naomis-MacBook-Air Part2 % java MySearchFiles < testcases.txt
+Enter query:
+Searching for: fiery sword
+1 total matching documents
+1. documents/RJ3.txt
+Press (q)uit or enter number to jump to a page.
+Enter query:
+Searching for: alas love
+4 total matching documents
+1. documents/RJ6.txt
+2. documents/RJ7.txt
+3. documents/RJ1.txt
+4. documents/RJ10.txt
+Press (q)uit or enter number to jump to a page.
+Enter query:
+Searching for: and
+8 total matching documents
+1. documents/RJ3.txt
+2. documents/RJ10.txt
+3. documents/RJ5.txt
+4. documents/RJ2.txt
+5. documents/RJ4.txt
+6. documents/RJ8.txt
+7. documents/RJ7.txt
+8. documents/RJ1.txt
+Press (q)uit or enter number to jump to a page.
+Enter query:
+Searching for: reckon
+0 total matching documents
+Enter query:
+Searching for: q
+0 total matching documents
+Enter query:
+Searching for: love
+4 total matching documents
+1. documents/RJ6.txt
+2. documents/RJ7.txt
+3. documents/RJ1.txt
+4. documents/RJ10.txt
+Press (q)uit or enter number to jump to a page.
+Enter query:
+Searching for: fair
+3 total matching documents
+1. documents/RJ9.txt
+2. documents/RJ10.txt
+3. documents/RJ1.txt
+Press (q)uit or enter number to jump to a page.
+Enter query:
+
+
+2.2. Stemming
+See line 95 in MyStandardAnalyzer.java.
+
+Here we can see stemming, 'fiery' -> 'fieri', 'alas' -> 'ala'
+
+minokah@Naomis-MacBook-Air Part2 % java MySearchFiles < testcases.txt
+Enter query:
+Searching for: fieri sword
+1 total matching documents
+1. documents/RJ3.txt
+Press (q)uit or enter number to jump to a page.
+Enter query:
+Searching for: ala love
+5 total matching documents
+1. documents/RJ6.txt
+2. documents/RJ7.txt
+3. documents/RJ8.txt
+4. documents/RJ1.txt
+5. documents/RJ10.txt
+Press (q)uit or enter number to jump to a page.
+Enter query:
+Searching for: and
+8 total matching documents
+1. documents/RJ3.txt
+2. documents/RJ10.txt
+3. documents/RJ5.txt
+4. documents/RJ2.txt
+5. documents/RJ4.txt
+6. documents/RJ8.txt
+7. documents/RJ7.txt
+8. documents/RJ1.txt
+Press (q)uit or enter number to jump to a page.
+Enter query:
+Searching for: reckon
+1 total matching documents
+1. documents/RJ10.txt
+Press (q)uit or enter number to jump to a page.
+Enter query:
+Searching for: love
+5 total matching documents
+1. documents/RJ6.txt
+2. documents/RJ7.txt
+3. documents/RJ8.txt
+4. documents/RJ1.txt
+5. documents/RJ10.txt
+Press (q)uit or enter number to jump to a page.
+Enter query:
+Searching for: fair
+3 total matching documents
+1. documents/RJ9.txt
+2. documents/RJ10.txt
+3. documents/RJ1.txt
+Press (q)uit or enter number to jump to a page.
+Enter query:
+
+2.3 Similarity
+See line 114 in MyIndexFiles.java and 101 in MySearchFiles.java.
+
+Here for 'and', RJ5 now ranks above RJ10.
+
+minokah@Naomis-MacBook-Air Part2 % java MySearchFiles < testcases.txt
+Enter query:
+Searching for: fieri sword
+1 total matching documents
+1. documents/RJ3.txt
+Press (q)uit or enter number to jump to a page.
+Enter query:
+Searching for: ala love
+5 total matching documents
+1. documents/RJ6.txt
+2. documents/RJ7.txt
+3. documents/RJ8.txt
+4. documents/RJ1.txt
+5. documents/RJ10.txt
+Press (q)uit or enter number to jump to a page.
+Enter query:
+Searching for: and
+8 total matching documents
+1. documents/RJ3.txt
+2. documents/RJ5.txt
+3. documents/RJ10.txt
+4. documents/RJ2.txt
+5. documents/RJ4.txt
+6. documents/RJ8.txt
+7. documents/RJ7.txt
+8. documents/RJ1.txt
+Press (q)uit or enter number to jump to a page.
+Enter query:
+Searching for: reckon
+1 total matching documents
+1. documents/RJ10.txt
+Press (q)uit or enter number to jump to a page.
+Enter query:
+Searching for: love
+5 total matching documents
+1. documents/RJ6.txt
+2. documents/RJ7.txt
+3. documents/RJ8.txt
+4. documents/RJ1.txt
+5. documents/RJ10.txt
+Press (q)uit or enter number to jump to a page.
+Enter query:
+Searching for: fair
+3 total matching documents
+1. documents/RJ9.txt
+2. documents/RJ10.txt
+3. documents/RJ1.txt
+Press (q)uit or enter number to jump to a page.
+Enter query:

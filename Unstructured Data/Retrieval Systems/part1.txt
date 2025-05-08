@@ -1,0 +1,27 @@
+1.1 Indexing
+Q1. See elasticcommands.txt
+Q2. We don't want to have our index all in one big file/node, as by sharding we can distribute the indexes across nodes to reduce load.
+Q3. We want to replicate and index because if one node goes down with the index, others will still have a copy of that index to use.
+Q4. Our cluster health is yellow because Elasticsearch only allocates one replica. Another node needs to join the cluster so we can have 2
+replicas (2 copies) which will turn the status green.
+
+1.2 Indexing Reddit
+Q1. curl -X GET "localhost:9200/_cat/indices?v&pretty"
+Q2. The index is called "comments"
+Q3. 31.7mb
+
+2. Search
+Q1. These return different documents. The value under hits.total is different for each one.
+Q2. Query1: 10.503806, Query2: 11.629242, Query3: 18.84402
+Q3. I couldn't deduce much, but I can see that it does convert 'Cat' to lowercase 'cat' in the bodies for matching. I'm guessing there is no
+stemming involved (yet)
+Q4. Let's check for the letter 'a' as in "a thing". This command does return results, so it doesn't remove stop words.
+
+curl -XGET "localhost:9200/_search?pretty" -H "Content-Type: application/json" -d"{ \"query\": { \"match\" : { \"body\" : { \"query\" : \"a\"} } } }"
+
+3. Analyzers
+Q1. curl -X DELETE "localhost:9200/comments?pretty&pretty"
+Q2. I ran the commands.
+Q2.1. I notice that the amount of total hits are now all the same, 126. The first two queries return the same max score of 10.429893, while the third one returns 20.859785. In fact, all three queries look like they return the exact same entries.
+Q2.2. Index looks like it became bigger. I think the reason for this is because we added those analysis rules to modify the bodies.
+For example, we have lowercase to change the letters to lowercase, which when we query CAT vs cat it will turn CAT into cat, which matches more.

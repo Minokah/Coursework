@@ -1,0 +1,27 @@
+1.
+
+GLOVE
+- More emojis show up
+- Shorter results are included (compared to MiniLLM), also includes user handles (@'s)
+
+
+MiniLLM
+- Lots of repeats and hashtags
+- Appears to be more relevant to the original query "I am looking for a job" in terms of meaning
+
+Explanation:
+My guess as to why these differences are occurring is MiniLLM is taking into account the length of the entire sentence as well as
+the meaning of the query.
+
+For example, the top result in MiniLLM: "I need a job" is very similar to the meaning of "I am looking for a job". The second result
+"Does anyone know of anywhere that's hiring" is in the same vein as "I am looking for a job", ie. searching for a job to work.
+Same with the third result "Can anyone recommend anyone for this #job" and an address.
+
+To contrast with GLOVE, it is not taking in the meaning of the sentence: the first two are: "I love my job. (emojis)", and "You guys are
+doing a great job." This is not relevant to the original query's meaning, "I am looking for a job". The first one is saying, the user loves their job, and the second one saying the group is performing great on their work, which isn't what the query's meaning is.
+
+2.
+
+With the changes to Twitter being rebranded as X, I have to sign up for an account. Through trying the "I am looking for a job" query, I
+think I can say that it does try to match what you are looking for by meaning, as I am seeing posts also mentioning that others are looking for
+a job. So yes, I think Twitter/X is using a semantic search technique.

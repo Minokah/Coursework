@@ -1,0 +1,91 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18ec624ab7c52421cae7d8693de8b2d0, type: 3}
+  m_Name: fr
+  m_EditorClassIdentifier: 
+  keys:
+  - RobotSpeaker
+  - SelectLanguage
+  - QuitButton
+  - WhatToAsk
+  - TalkToRobot
+  - ChangeMusic
+  - Music1
+  - MusicMall
+  - MusicCity
+  - MusicChanged
+  - MusicChangeAgain
+  - MusicChangeEnd
+  - RobotStart1
+  - RobotStart2
+  - RobotStart3
+  - Yes
+  - No
+  - RobotUnityYes1
+  - RobotSpeakerHappy
+  - RobotUnityNo1
+  - RobotSpeakerSad
+  - RobotCream1
+  - CreamChocolate
+  - CreamVanilla
+  - CreamStrawberry
+  - CreamDislike
+  - RobotCreamChocolate1
+  - RobotCreamVanilla1
+  - RobotCreamStrawberry1
+  - RobotCreamDislike1
+  - RobotCreamDislike2
+  - RobotEnd1
+  - RobotEnd2
+  - RobotEnd3
+  - RobotEndStart
+  - RobotEndExit
+  values:
+  - Kyle
+  - "S\xE9lectionner la Langue"
+  - Abandonar
+  - Que demander...?
+  - Parlez au Robot
+  - Changer la Musique
+  - Que souhaiteriez-vous changer?
+  - Centre commercial
+  - Ville
+  - "Appr\xE9cier!"
+  - "Changez-le \xE0 nouveau"
+  - (Retour au menu)
+  - "Salut! Je suis Kyle. Enchant\xE9 de te rencontrer!"
+  - Pour commencer, laissez-moi vous poser une question.
+  - Aimez-vous Unity?
+  - Oui
+  - Non
+  - "C'est bon \xE0 entendre ! Je suis ravie que cela vous plaise."
+  - Joyeux Kyle
+  - Quoi?! Tu n'aimes pas Unity ? C'est dommage... en tout cas.
+  - Triste Kyle
+  - "Siguiente pregunta... \xBFCu\xE1l es tu sabor favorito de helado?"
+  - Chocolat
+  - Vanille
+  - Fraise
+  - En fait, je n'aime pas la glace
+  - "Chocolat, brun et sucr\xE9 ! Un choix tr\xE8s populaire."
+  - Vanille, blanche comme neige... ou presque. Bon choix!
+  - "Toi aussi tu aimes la fraise ! C'est mon parfum pr\xE9f\xE9r\xE9!"
+  - QUOI!? Qui n'aime pas la glace? Absurde ! Inconcevable!
+  - "... d\xE9sol\xE9 pour l'emportement. Je ne crois pas pouvoir te regarder de
+    la m\xEAme fa\xE7on d\xE9sormais... passons \xE0 autre chose."
+  - "Hmm. On dirait que je n'ai plus de questions. Nous allons devoir arr\xEAter
+    l\xE0."
+  - "C'\xE9tait vraiment sympa de discuter avec toi ! J'esp\xE8re que nous pourrons
+    nous reparler un jour."
+  - "D'ici l\xE0... bonne journ\xE9e !"
+  - (Reprenez la conversation)
+  - (Fin de la conversation)

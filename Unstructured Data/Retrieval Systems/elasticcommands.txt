@@ -1,0 +1,58 @@
+C:\Users\luubr>curl -X GET "localhost:9200/_cat/health?v&pretty"
+epoch      timestamp cluster       status node.total node.data shards pri relo init unassign unassign.pri pending_tasks max_task_wait_time active_shards_percent
+1740855801 19:03:21  elasticsearch green           1         1      0   0    0    0        0            0             0                  -                100.0%
+
+C:\Users\luubr>curl -X GET "localhost:9200/_cat/nodes?v&pretty"
+ip        heap.percent ram.percent cpu load_1m load_5m load_15m node.role   master name
+127.0.0.1            2          93  15                          cdfhilmrstw *      MINOMACHINE
+
+C:\Users\luubr>curl -X GET "localhost:9200/_cat/indices?v&pretty"
+health status index uuid pri rep docs.count docs.deleted store.size pri.store.size dataset.size
+
+C:\Users\luubr>curl -X PUT "localhost:9200/customer?pretty&pretty"
+{
+  "acknowledged" : true,
+  "shards_acknowledged" : true,
+  "index" : "customer"
+}
+
+C:\Users\luubr>curl -X GET "localhost:9200/_cat/indices?v&pretty"
+health status index    uuid                   pri rep docs.count docs.deleted store.size pri.store.size dataset.size
+yellow open   customer 7h57eKncTtGhwRxlxrDxvw   1   1          0            0       227b           227b         227b
+
+Doing this command through the terminal didn't work so I did it through Postman:
+PUT localhost:9200/customer/_doc/1?pretty with data {"name": "John Doe"}
+{
+    "_index": "customer",
+    "_id": "1",
+    "_version": 1,
+    "result": "created",
+    "_shards": {
+        "total": 2,
+        "successful": 1,
+        "failed": 0
+    },
+    "_seq_no": 0,
+    "_primary_term": 1
+}
+
+C:\Users\luubr>curl -X GET "localhost:9200/customer/_doc/1?pretty&pretty"
+{
+  "_index" : "customer",
+  "_id" : "1",
+  "_version" : 1,
+  "_seq_no" : 0,
+  "_primary_term" : 1,
+  "found" : true,
+  "_source" : {
+    "name" : "John Doe"
+  }
+}
+
+C:\Users\luubr>curl -X DELETE "localhost:9200/customer?pretty&pretty"
+{
+  "acknowledged" : true
+}
+
+C:\Users\luubr>curl -X GET "localhost:9200/_cat/indices?v&pretty"
+health status index uuid pri rep docs.count docs.deleted store.size pri.store.size dataset.size
